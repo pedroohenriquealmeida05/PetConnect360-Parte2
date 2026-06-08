@@ -1,4 +1,5 @@
 package State;
+import State.EstadoAgendamento.Estado;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -25,8 +26,20 @@ public abstract class State {
     public String Reagendar();
     */
       public static void main(String[] args) {
+           String data = "";
+    int horario;
          Agendamento agendar = new Agendamento();
+        
+         Metodos dados = new Metodos();
          
-         agendar.Agendamento();
+         agendar.Agendamento(dados);
+         
+          System.out.println("A data cadastrada foi: " + dados.getData());
+          System.out.println("A Hora cadastrada foi: " + dados.getHora());
+          System.out.println("Seu Cadastro esta pendente espere um instante");
+     
     }
 }
+         
+    
+
