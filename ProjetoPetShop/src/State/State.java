@@ -17,10 +17,16 @@ public abstract class State {
         
         this.agendar = agendar;
     }
-    
+    /*
     public String Concluir();
     public String Cancelar();
     public String Pendente();
     public String Confirmado();
     public String Reagendar();
+    */
+      public static void main(String[] args) {
+         Agendamento agendar = new Agendamento();
+         
+         agendar.Agendamento();
+    }
 }
