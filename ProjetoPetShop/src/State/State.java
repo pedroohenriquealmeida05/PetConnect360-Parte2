@@ -10,12 +10,12 @@ package State;
  *
  * @author igorg
  */
-public class State {
-    Agendamento agendar();
+public abstract class State {
+    Agendamento agendar;
     
     State(Agendamento agendar){
         
-        this agendar = agendar;
+        this.agendar = agendar;
     }
     
     public String Concluir();
