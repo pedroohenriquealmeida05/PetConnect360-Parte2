@@ -5,10 +5,13 @@ import seguranca.*;
 
 
 /**
- *
- * @author P.H.A
+ * @author Pedro Henrique <pedroohenriquealmeida05@gmail.com>
  */
 
+
+/**
+ * Classe de testes unitários para validar as restrições de segurança do padrão Proxy.
+ */
 public class ProntuarioProxyTest {
     
  /**

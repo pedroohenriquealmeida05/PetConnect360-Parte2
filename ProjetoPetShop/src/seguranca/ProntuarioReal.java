@@ -1,6 +1,11 @@
 package seguranca;
 
 /**
+ * @author Pedro Henrique <pedroohenriquealmeida05@gmail.com>
+ */
+
+
+/**
  * Classe que contém as informações reais e confidenciais do pet.
  */
 public class ProntuarioReal implements IProntuario {

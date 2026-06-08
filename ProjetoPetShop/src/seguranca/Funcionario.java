@@ -1,6 +1,11 @@
 package seguranca;
 
 /**
+ * @author Pedro Henrique <pedroohenriquealmeida05@gmail.com>
+ */
+
+
+/**
  * Classe que representa os funcionários do sistema para validação de permissões.
  */
 public class Funcionario {

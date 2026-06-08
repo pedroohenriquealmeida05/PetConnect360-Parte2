@@ -1,6 +1,11 @@
 package seguranca;
 
 /**
+ * @author Pedro Henrique <pedroohenriquealmeida05@gmail.com>
+ */
+
+
+/**
  * Proxy de Proteção que intercepta as chamadas ao ProntuarioReal.
  * Garante conformidade com a LGPD através do controle de acesso por nível.
  */
