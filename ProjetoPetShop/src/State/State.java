@@ -32,11 +32,14 @@ public abstract class State {
         
          Metodos dados = new Metodos();
          
+         Estado estado = new Estado();
+         
          agendar.Agendamento(dados);
          
           System.out.println("A data cadastrada foi: " + dados.getData());
           System.out.println("A Hora cadastrada foi: " + dados.getHora());
           System.out.println("Seu Cadastro esta pendente espere um instante");
+          estado.Concluir();
      
     }
 }
