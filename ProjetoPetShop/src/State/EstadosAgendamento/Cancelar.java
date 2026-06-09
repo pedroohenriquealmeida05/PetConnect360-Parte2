@@ -29,7 +29,7 @@ public class Cancelar extends Agendamento{
     
     @Override
     public String concluido(){
-       
+        agendamento.setEstado(new Concluir(agendamento));
         return("Seu Cadastro foi concluido nao eh possivel cancelar");
     }
     

@@ -25,9 +25,11 @@ public class StateJunityTeste {
         Metodos agendamento = new Metodos();
 
        Agendamento mockEstado= mock(Agendamento.class);
-          
-       agendamento.setData("20/12/2005");
-       agendamento.setHora("12:50");
+       
+       when(mockEstado.pendente()).thenReturn("Seu Cadastro foi confirmado"); 
+       
+       agendamento.setData("12/06/2026");
+       agendamento.setHora("16:50");
        
        System.out.println("\n");
         //2.confirma
@@ -43,20 +45,25 @@ public class StateJunityTeste {
          String Hora = agendamento.getHora(   );
          
           assertEquals("Seu Cadastro foi concluido",concluido);
-          assertEquals("12/12/2026", Data);
+          assertEquals("12/06/2026", Data);
           assertEquals("16:50", Hora);
          
+         System.out.println("O seu agendamento foi concluido!");
        verify(mockEstado, times(1)).concluido();
+      
     }
     /*
-      public void testarCancelar() {
+     @Test
+    public void testarReagendamento() {
          //1.prepara para ser pendente
         Metodos agendamento = new Metodos();
 
-       State mockEstado= mock(State.class);
-          
-       agendamento.setData("20/12/2005");
-       agendamento.setHora("12:50");
+       Agendamento mockEstado= mock(Agendamento.class);
+       
+       when(mockEstado.pendente()).thenReturn("Seu Cadastro foi confirmado"); 
+       
+       agendamento.setData("12/06/2026");
+       agendamento.setHora("16:50");
        
        System.out.println("\n");
         //2.confirma
@@ -72,9 +79,51 @@ public class StateJunityTeste {
          String Hora = agendamento.getHora(   );
          
           assertEquals("Seu Cadastro foi concluido",concluido);
-          assertEquals("20/12/2005", Data);
-          assertEquals("12:50", Hora);
+          assertEquals("12/06/2026", Data);
+          assertEquals("16:50", Hora);
          
        verify(mockEstado, times(1)).concluido();
     }*/
+    
+    @Test
+      public void testarCancelar() {
+          //1.prepara para ser pendente
+        Metodos agendamento = new Metodos();
+
+       Agendamento mockEstado= mock(Agendamento.class);
+       
+       when(mockEstado.pendente()).thenReturn("Seu Cadastro foi confirmado"); 
+       
+       agendamento.setData("30/07/2026");
+       agendamento.setHora("09:50");
+       
+       System.out.println("\n");
+        //2.confirma
+           when(mockEstado.confirmado()).thenReturn("Seu Cadastro foi confirmado"); 
+           
+                
+        //3.conclui
+         when(mockEstado.concluido()).thenReturn("Seu Cadastro foi concluido"); 
+        
+        //4. Tenta o cancelamento do cadastro concluido
+        
+         when(mockEstado.cancelar()).thenReturn("Seu Cadastro foi concluido nao eh possivel cancelar"); 
+         
+         
+         //Verificações
+         String concluido = mockEstado.concluido();
+         String falha = mockEstado.cancelar();
+         String Data = agendamento.getData();
+         String Hora = agendamento.getHora( );
+         
+         
+           assertEquals("Seu Cadastro foi concluido nao eh possivel cancelar",falha);
+         
+          agendamento.setData("30/07/2026");
+          agendamento.setHora("09:50");
+          System.out.println("O seu agendamento ja esta concluido nao eh possivel cancelar");
+          
+       verify(mockEstado, times(1)).concluido();
+        
+    }
 }
