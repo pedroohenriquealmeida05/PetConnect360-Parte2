@@ -3,8 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package State;
-import State.Estados.Pendente;
-import State.Estados.Reagendar;
+import State.EstadosAgendamento.Pendente;
+import State.EstadosAgendamento.Reagendar;
 /**
  *
  * @author igorg
@@ -12,38 +12,18 @@ import State.Estados.Reagendar;
 public class Metodos {
     private String data;
     private String horario;
-    private State state;
+    private Agendamento estado;
     
     
     public Metodos (){
-        this.state = new Pendente(this);
+        this.estado = new Pendente(this);
     }
     
-     public void setState(State state) {
-       this.state = state;
+     public void setEstado(Agendamento estado) {
+       this.estado = estado;
     }
      
-     public String confirmado(){
-         return state.confirmado();
-     }
-     
-     public String cancelar(){
-         return state.cancelar();
-     }
-
-      public String concluido(){
-         return state.concluido();
-     }
-     
-     public String reagendar(){
-         return state.reagendar();
-     }
-     
-     
-     public void mostrarState() {
-        System.out.println("Estado atual: " + state.getClass().getSimpleName());
-    }
-    
+  
     public void setData(String data){
         this.data = data;
     }
@@ -62,5 +42,13 @@ public class Metodos {
      
 
    
+     
+     
+      /*
+     
+     public void mostrarState() {
+        System.out.println("Estado atual: " + estado.getClass().getSimpleName());
+    }
+    */
     
 }

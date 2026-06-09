@@ -2,15 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package State.Estados;
+package State.EstadosAgendamento;
 
 import State.Metodos;
-import State.State;
+import State.Agendamento;
 /**
  *
  * @author igorg
  */
-public class Pendente extends State{
+public class Pendente extends Agendamento{
 
     public Pendente(Metodos agendamento){
         super(agendamento);
@@ -18,13 +18,13 @@ public class Pendente extends State{
     
     @Override
     public String confirmado(){
-        agendamento.setState(new Confirmar(agendamento));
+        agendamento.setEstado(new Confirmar(agendamento));
         return("Seu Cadastro foi confirmado porem esta pendente espere um instante");
     }
     
     @Override
     public String cancelar() {
-        agendamento.setState(new Cancelar(agendamento));
+        agendamento.setEstado(new Cancelar(agendamento));
         return("Seu Cadastro pendente foi cancelado");
     }
     
@@ -36,9 +36,12 @@ public class Pendente extends State{
     
       @Override
     public String reagendar(){
-        agendamento.setState(new Reagendar(agendamento));
+        agendamento.setEstado(new Reagendar(agendamento));
         return("Seu Cadastro vai ser reagendado seu estatus continua como pendente");
     }
 
-    
+      public String pendente(){
+      
+        return("Ja esta pendente");
+    }
 }

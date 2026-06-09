@@ -2,16 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package State.Estados;
+package State.EstadosAgendamento;
 
 import State.Metodos;
-import State.State;
+import State.Agendamento;
 
 /**
  *
  * @author igorg
  */
-public class Concluir extends State{
+public class Concluir extends Agendamento{
         public Concluir(Metodos agendamento){
         super(agendamento);
     }
@@ -38,7 +38,11 @@ public class Concluir extends State{
       
         return("Seu Cadastro foi reagendado foi concluido");
     }
-
+    
+    public String pendente(){
+      
+        return("nao da mais para deixar pendende pois foi concluido");
+    }
    
     
 }
