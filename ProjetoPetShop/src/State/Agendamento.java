@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Agendamento {
     private Scanner s;
  
-    public void Agendamento(Metodos agendamentoObjeto) {
+    public void Agendamento(Metodos dados) {
         s = new Scanner(System.in);
         
         System.out.println("Olá, qual vai ser o dia do seu agendamento?"); 
@@ -19,8 +19,8 @@ public class Agendamento {
         int horarioDigitado = s.nextInt();  
        
         
-        agendamentoObjeto.setData(dataDigitada);
-        agendamentoObjeto.setHora(horarioDigitado);
+        dados.setData(dataDigitada);
+        dados.setHora(horarioDigitado);
     }
 }
     
