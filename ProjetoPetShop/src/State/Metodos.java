@@ -11,7 +11,7 @@ import State.Estados.Reagendar;
  */
 public class Metodos {
     private String data;
-    private int horario;
+    private String horario;
     private State state;
     
     
@@ -52,11 +52,11 @@ public class Metodos {
         return data;
     }
      
-      public void setHora(int horario){
+      public void setHora(String horario){
         this.horario = horario;
     }
     
-     public int getHora(){
+     public String getHora(){
         return horario;
     }
      

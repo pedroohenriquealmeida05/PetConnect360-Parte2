@@ -23,7 +23,12 @@ public abstract class State {
     public abstract String cancelar();
     public abstract String concluido();
     
-    /*
+   
+}
+         
+    
+
+ /*
     State(Agendamento agendar){
                                         
         this.agendar = agendar;
@@ -46,7 +51,3 @@ public abstract class State {
           estado.Concluir();
      
     }*/
-}
-         
-    
-

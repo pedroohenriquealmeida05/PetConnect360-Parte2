@@ -16,7 +16,7 @@ public class Agendamento {
         String dataDigitada = s.nextLine(); 
        
         System.out.println("Qual vai ser o horário do seu agendamento?"); 
-        int horarioDigitado = s.nextInt();  
+        String horarioDigitado = s.nextLine();  
        
         
         dados.setData(dataDigitada);

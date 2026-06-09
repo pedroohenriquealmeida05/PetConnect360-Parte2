@@ -12,7 +12,7 @@ import State.State;
  * @author igorg
  */
 public class Cancelar extends State{
-            public Cancelar(Metodos agendamento){
+     public Cancelar(Metodos agendamento){
         super(agendamento);
     }
     
