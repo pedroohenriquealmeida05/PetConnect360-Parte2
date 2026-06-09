@@ -31,7 +31,7 @@ public class StateJunityTeste {
        agendamento.setData("12/06/2026");
        agendamento.setHora("16:50");
        
-       System.out.println("\n");
+      
         //2.confirma
            when(mockEstado.confirmado()).thenReturn("Seu Cadastro foi confirmado"); 
            
@@ -48,11 +48,11 @@ public class StateJunityTeste {
           assertEquals("12/06/2026", Data);
           assertEquals("16:50", Hora);
          
-         System.out.println("O seu agendamento foi concluido!");
+         System.out.println("1-O seu agendamento foi concluido!");
        verify(mockEstado, times(1)).concluido();
       
     }
-    /*
+    
      @Test
     public void testarReagendamento() {
          //1.prepara para ser pendente
@@ -65,25 +65,24 @@ public class StateJunityTeste {
        agendamento.setData("12/06/2026");
        agendamento.setHora("16:50");
        
-       System.out.println("\n");
-        //2.confirma
-           when(mockEstado.confirmado()).thenReturn("Seu Cadastro foi confirmado"); 
-           
-                
-        //3.conclui
-         when(mockEstado.concluido()).thenReturn("Seu Cadastro foi concluido"); 
-        
-        
-         String concluido = mockEstado.concluido();
+      
+        //2.Reagenda pendente
+       agendamento.setData("17/09/2026");
+       agendamento.setHora("13:25");
+       
+         when(mockEstado.reagendar()).thenReturn("Seu Agendamento pendente foi reagendado"); 
+         
+        String reagendado = mockEstado.reagendar();
          String Data = agendamento.getData();
-         String Hora = agendamento.getHora(   );
+         String Hora = agendamento.getHora();
          
-          assertEquals("Seu Cadastro foi concluido",concluido);
-          assertEquals("12/06/2026", Data);
-          assertEquals("16:50", Hora);
+          assertEquals("Seu Agendamento pendente foi reagendado",reagendado);
+          assertEquals("17/09/2026", Data);
+          assertEquals("13:25", Hora);
          
-       verify(mockEstado, times(1)).concluido();
-    }*/
+       verify(mockEstado, times(1)).reagendar();
+         System.out.println("2-Seu Agendamento pendente foi reagendado");
+    }
     
     @Test
       public void testarCancelar() {
@@ -97,7 +96,7 @@ public class StateJunityTeste {
        agendamento.setData("30/07/2026");
        agendamento.setHora("09:50");
        
-       System.out.println("\n");
+      
         //2.confirma
            when(mockEstado.confirmado()).thenReturn("Seu Cadastro foi confirmado"); 
            
@@ -121,7 +120,7 @@ public class StateJunityTeste {
          
           agendamento.setData("30/07/2026");
           agendamento.setHora("09:50");
-          System.out.println("O seu agendamento ja esta concluido nao eh possivel cancelar");
+          System.out.println("3-O seu agendamento ja esta concluido nao eh possivel cancelar");
           
        verify(mockEstado, times(1)).concluido();
         
