@@ -10,6 +10,8 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
 import State.EstadoAgendamento;
 import State.ContextoAgendamento;
+import State.EstadosAgendamento.EstadoConcluir;
+import State.EstadosAgendamento.EstadoPendente;
 
 /**
  *
@@ -19,7 +21,7 @@ import State.ContextoAgendamento;
 
 /**
  * 
- * CT-07
+ * CT-07 Este serve para fazer a conclusao do agendamento que esta confirmado e vai ser concluido 
  * 
  */
 public class StateJunityTeste {
@@ -29,106 +31,53 @@ public class StateJunityTeste {
     public void testarCT07_ConcluirAgendamentoPendente() {
   
         
-         //1.prepara para ser pendente
+         //prepara o teste
         ContextoAgendamento agendamento = new ContextoAgendamento();
-
-       EstadoAgendamento mockEstado= mock(EstadoAgendamento.class);
-       
-       when(mockEstado.pendente()).thenReturn("Seu Cadastro foi confirmado"); 
-       
+         EstadoAgendamento mockEstado = mock(EstadoAgendamento.class);
+        
+        //Injeta no mock 
+        agendamento.setEstado(mockEstado);
      
-      
-        //2.confirma
-           when(mockEstado.estadoconfirmado()).thenReturn("Seu Cadastro foi confirmado"); 
-           
-                
-        //3.conclui
-         when(mockEstado.estadoconcluido()).thenReturn("Seu Cadastro foi concluido"); 
-        
-        
-         String concluido = mockEstado.estadoconcluido();
-         
-         
-          assertEquals("Seu Cadastro foi concluido",concluido);
-        
-         
-        
+        //Conclui
+        agendamento.EstadoConcluido();
+ 
+        //Faz A verificacao
        verify(mockEstado, times(1)).estadoconcluido();
-        System.out.println("1-O seu agendamento foi concluido!");
+       //Mostra que foi com sucesso o agendamento
+       System.out.println("1- O seu agendamento foi concluido!");
       
     }
     
     
      @Test
     public void testarCT08_ReagendamentodoAgendamentoPendente() {
-         //1.prepara para ser pendente
         ContextoAgendamento agendamento = new ContextoAgendamento();
-
-       EstadoAgendamento mockEstado= mock(EstadoAgendamento.class);
-       
-       when(mockEstado.pendente()).thenReturn("Seu Cadastro foi confirmado"); 
-       
-       agendamento.setData("12/06/2026");
-       agendamento.setHora("16:50");
-       
-      
-        //2.Reagenda pendente
-       agendamento.setData("17/09/2026");
-       agendamento.setHora("13:25");
-       
-         when(mockEstado.estadoreagendar()).thenReturn("Seu Agendamento pendente foi reagendado"); 
-         
-        String reagendado = mockEstado.estadoreagendar();
-         String Data = agendamento.getData();
-         String Hora = agendamento.getHora();
-         
-          assertEquals("Seu Agendamento pendente foi reagendado",reagendado);
-          assertEquals("17/09/2026", Data);
-          assertEquals("13:25", Hora);
-         
-       verify(mockEstado, times(1)).estadoreagendar();
-         System.out.println("2-Seu Agendamento pendente foi reagendado");
+            EstadoAgendamento mockEstado = mock(EstadoAgendamento.class);
+            
+              agendamento.setEstado(mockEstado);
+             
+              agendamento.EstadoReagendar();
+              
+              verify(mockEstado, times(1)).estadoreagendar();
+              System.out.println("2- Seu Agendamento pendente foi reagendado");
     }
     
     @Test
-      public void testarCT09_TentarCancelarAgendamentoConcluido() {
-          //1.prepara para ser pendente
+    public void testarCT09_TentarCancelarAgendamentoConcluido() {
         ContextoAgendamento agendamento = new ContextoAgendamento();
+        EstadoAgendamento mockEstado = mock(EstadoAgendamento.class);
 
-       EstadoAgendamento mockEstado= mock(EstadoAgendamento.class);
-       
-       when(mockEstado.pendente()).thenReturn("Seu Cadastro foi confirmado"); 
-       
-       agendamento.setData("30/07/2026");
-       agendamento.setHora("09:50");
-       
-      
-        //2.confirma
-           when(mockEstado.estadoconfirmado()).thenReturn("Seu Cadastro foi confirmado"); 
-           
-                
-        //3.conclui
-         when(mockEstado.estadoconcluido()).thenReturn("Seu Cadastro foi concluido"); 
+        agendamento.setEstado(mockEstado);
         
-        //4. Tenta o cancelamento do cadastro concluido
-        
-         when(mockEstado.estadocancelar()).thenReturn("Seu Cadastro foi concluido nao eh possivel cancelar"); 
-         
-         
-         //Verificações
-         String concluido = mockEstado.estadoconcluido();
-         String falha = mockEstado.estadocancelar();
-         String Data = agendamento.getData();
-         String Hora = agendamento.getHora( );
-         
-         
-           assertEquals("Seu Cadastro foi concluido nao eh possivel cancelar",falha);
-                                                                                            
-          agendamento.setData("30/07/2026");
-          agendamento.setHora("09:50");
-         
-          
-       verify(mockEstado, times(1)).estadoconcluido();
-         System.out.println("3-O seu agendamento ja esta concluido nao eh possivel cancelar");
-    }
+        doThrow(new IllegalStateException("3-O seu agendamento ja esta concluido nao eh possivel cancelar")).when(mockEstado).estadocancelar();
+
+        assertThrows(IllegalStateException.class, () -> {
+            agendamento.Estadocancelar();
+        });
+
+        verify(mockEstado, times(1)).estadocancelar();
+        System.out.println("3-O seu agendamento ja esta concluido nao eh possivel cancelar");
 }
+}
+
+
