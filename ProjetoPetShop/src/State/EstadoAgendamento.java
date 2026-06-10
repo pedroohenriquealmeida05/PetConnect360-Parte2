@@ -26,7 +26,7 @@ public abstract class EstadoAgendamento {
     public abstract String estadoconfirmado();
     public abstract String estadocancelar();
     public abstract String estadoconcluido();
-     public abstract String pendente();
+    public abstract String pendente();
    
 }
          

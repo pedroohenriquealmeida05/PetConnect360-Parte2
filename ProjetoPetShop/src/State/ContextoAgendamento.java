@@ -7,7 +7,7 @@ import State.EstadosAgendamento.EstadoPendente;
 import State.EstadosAgendamento.EstadoReagendar;
 /**
  *
- * @author Igor Massagardi Igormassagardi@hotmail.com
+ * @author Igor Massagardi Igormassagardi@hotmail.com                                                                                       
  */
 public class ContextoAgendamento {
     //Cria Strings para a Data, Horario e cria um atributo ao estado do agendamento
@@ -25,7 +25,27 @@ public class ContextoAgendamento {
      public void setEstado(EstadoAgendamento estado) {
        this.estado = estado;
     }
+    
+     public void Estadopendente(){
+         this.estado.pendente();
+     }
      
+     public void EstadoConfirmado(){
+         this.estado.estadoconfirmado();
+     }
+     
+     public void EstadoConcluido(){
+         this.estado.estadoconcluido();
+     }
+      
+     public void EstadoReagendar(){
+         this.estado.estadoreagendar();
+     }
+     
+      public void Estadocancelar(){
+         this.estado.estadocancelar();
+     }
+   
   //define a data do agendamento
     public void setData(String data){
         this.data = data;
