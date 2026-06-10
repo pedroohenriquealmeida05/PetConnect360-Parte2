@@ -25,6 +25,9 @@ public class ContextoAgendamento {
      public void setEstado(EstadoAgendamento estado) {
        this.estado = estado;
     }
+     public EstadoAgendamento getEstado(){
+         return estado;
+     }
     
      public void Estadopendente(){
          this.estado.pendente();

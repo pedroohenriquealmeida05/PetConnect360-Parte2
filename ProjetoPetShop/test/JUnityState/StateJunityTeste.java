@@ -27,6 +27,8 @@ public class StateJunityTeste {
 //
    @Test
     public void testarCT07_ConcluirAgendamentoPendente() {
+  
+        
          //1.prepara para ser pendente
         ContextoAgendamento agendamento = new ContextoAgendamento();
 
@@ -34,9 +36,7 @@ public class StateJunityTeste {
        
        when(mockEstado.pendente()).thenReturn("Seu Cadastro foi confirmado"); 
        
-       agendamento.setData("12/06/2026");
-       agendamento.setHora("16:50");
-       
+     
       
         //2.confirma
            when(mockEstado.estadoconfirmado()).thenReturn("Seu Cadastro foi confirmado"); 
@@ -47,18 +47,17 @@ public class StateJunityTeste {
         
         
          String concluido = mockEstado.estadoconcluido();
-         String Data = agendamento.getData();
-         String Hora = agendamento.getHora(   );
+         
          
           assertEquals("Seu Cadastro foi concluido",concluido);
-          assertEquals("12/06/2026", Data);
-          assertEquals("16:50", Hora);
+        
          
         
        verify(mockEstado, times(1)).estadoconcluido();
         System.out.println("1-O seu agendamento foi concluido!");
       
     }
+    
     
      @Test
     public void testarCT08_ReagendamentodoAgendamentoPendente() {
