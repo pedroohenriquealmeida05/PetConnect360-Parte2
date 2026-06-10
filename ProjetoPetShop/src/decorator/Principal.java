@@ -3,7 +3,7 @@ package decorator;
 public class Principal {
     public static void main(String[] args) {
         // 1. Começamos com o banho padrão (R$ 40,00)
-        IServico meuServico = new ServicoBase();
+        Servico meuServico = new ServicoBase();
         System.out.println("Base: " + meuServico.getDescricao() + " -> R$ " + meuServico.getPrecoFinal());
 
         // 2. Joga a Tosa por cima (+ R$ 20,00)
