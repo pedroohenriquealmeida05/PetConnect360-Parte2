@@ -1,27 +1,31 @@
 package State;
 
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 
 
 /**
  *
- * @author igorg
+ * @author Igor Massagardi igormassagardi@hotmail.com
  */
-public abstract class Agendamento {
+
+/**
+ * 
+ * Classe para iniciar o agendamento
+ */
+
+public abstract class EstadoAgendamento {
    // Agendamento agendar;
-    protected Metodos agendamento;
+    protected ContextoAgendamento agendamento;
       
-    public Agendamento(Metodos agendamento){
+    public EstadoAgendamento(ContextoAgendamento agendamento){
         this.agendamento = agendamento;
     }
-    public abstract String reagendar();
-    public abstract String confirmado();
-    public abstract String cancelar();
-    public abstract String concluido();
+    
+    //Inicia as classes abistratas para mudar o estado do agendamento
+    public abstract String estadoreagendar();
+    public abstract String estadoconfirmado();
+    public abstract String estadocancelar();
+    public abstract String estadoconcluido();
      public abstract String pendente();
    
 }

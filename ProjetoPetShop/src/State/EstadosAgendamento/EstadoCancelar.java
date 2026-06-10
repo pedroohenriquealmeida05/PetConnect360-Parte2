@@ -4,38 +4,43 @@
  */
 package State.EstadosAgendamento;
 
-import State.Metodos;
-import State.Agendamento;
+import State.ContextoAgendamento;
+import State.EstadoAgendamento;
 
 /**
  *
- * @author igorg
+ * @author Igor Massagardi Igormassagardi@hotmail.com
  */
-public class Cancelar extends Agendamento{
-     public Cancelar(Metodos agendamento){
+
+/**
+ * 
+ * Classe para cancelar o agendamento, so nao consegue cancelar se ja tiver concluido.
+ */
+public class EstadoCancelar extends EstadoAgendamento{
+     public EstadoCancelar(ContextoAgendamento agendamento){
         super(agendamento);
     }
     
     @Override
-    public String confirmado(){
+    public String estadoconfirmado(){
        
         return("Seu Cadastro foi cancelado");
     }
     
     @Override
-    public String cancelar(){
+    public String estadocancelar(){
         return("Seu Cadastro foi cancelado");
     }
     
     @Override
-    public String concluido(){
-        agendamento.setEstado(new Concluir(agendamento));
+    public String estadoconcluido(){
+        agendamento.setEstado(new EstadoConcluir(agendamento));
         return("Seu Cadastro foi concluido nao eh possivel cancelar");
     }
     
       @Override
-    public String reagendar(){
-        agendamento.setEstado(new Reagendar(agendamento));
+    public String estadoreagendar(){
+        agendamento.setEstado(new EstadoReagendar(agendamento));
         return("Seu Cadastro foi reagendado foi concluido");
     }
     
