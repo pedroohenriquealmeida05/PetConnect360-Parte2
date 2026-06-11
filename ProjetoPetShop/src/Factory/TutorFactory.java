@@ -1,16 +1,16 @@
 package Factory;
 
 
-import Factory.Tutor;
-import Factory.pessoaFactory;
-import Factory.pessoa;
-
-
-public class TutorFactory extends pessoaFactory {
+/**
+ * Fábrica Concreta responsável por instanciar objetos do tipo Tutor.
+ */
+public class TutorFactory implements pessoaFactory {
 
     @Override
-    public pessoa criarpessoa() {
-        return new Tutor();
+    public pessoa criarPessoa(String nome, String documento) {
+        if (nome == null || nome.isEmpty()) {
+            throw new IllegalArgumentException("Nome do tutor nao pode ser vazio.");
+        }
+        return new Tutor(nome, documento);
     }
-
 }
