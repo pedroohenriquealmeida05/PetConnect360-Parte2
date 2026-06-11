@@ -23,7 +23,7 @@ package Decorator;
 
     @Override
     public String getDescricao() {
-        return super.getDescricao() + " + Adicional de Hidratação";
+        return servico.getDescricao() + " + Adicional de Hidratação";
     }
 } 
 

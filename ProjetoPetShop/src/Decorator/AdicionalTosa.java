@@ -10,20 +10,27 @@ package Decorator;
  *
  * @author violi
  */
-public class AdicionalTosa extends ServicoDecorator {
-    private float taxaTosa = 20.00f;
+public class AdicionalTosa implements Servico {
+    
+    // O Decorator PRECISA guardar uma referência do serviço original que ele está embrulhando
+    private final Servico servicoEmbrulhado;
 
-    public AdicionalTosa(Servico s) {
-        super(s);
+    // O construtor recebe o serviço (que você passou lá no teste)
+    public AdicionalTosa(Servico servico) {
+        this.servicoEmbrulhado = servico;
     }
+
+    // Você PRECISA implementar os métodos da interface Servico aqui dentro:
 
     @Override
     public float getPrecoFinal() {
-        return super.getPrecoFinal() + this.taxaTosa;
+        // Pega o preço do serviço que veio antes e soma o valor da tosa (ex: 20 reais)
+        return servicoEmbrulhado.getPrecoFinal() + 20.00f; 
     }
 
     @Override
     public String getDescricao() {
-        return super.getDescricao() + ", Adicional de Tosa";
+        // Pega a descrição anterior e acrescenta a tosa
+        return servicoEmbrulhado.getDescricao() + " + Adicional de Tosa";
     }
 }
