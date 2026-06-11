@@ -1,6 +1,5 @@
 package Factory;
 
-
 /**
  * Produto Concreto: Representa o cliente do Pet Shop / Clínica.
  */
