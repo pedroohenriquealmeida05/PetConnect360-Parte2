@@ -14,4 +14,6 @@ public interface pessoaFactory {
      * @return Uma instância de uma subclasse concreta de Pessoa.
      */
     pessoa criarPessoa(String nome, String documento);
+
+    public pessoa criarpessoa();
 }

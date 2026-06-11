@@ -17,4 +17,9 @@ public class FuncionarioFactory implements pessoaFactory {
         novoFuncionario.setSenha("123456");      // Senha padrão gerada na criação
         return novoFuncionario;
     }
+
+    @Override
+    public pessoa criarpessoa() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
