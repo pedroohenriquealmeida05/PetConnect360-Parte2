@@ -1,8 +1,5 @@
 package State;
 
-
-
-
 /**
  *
  * @author Igor Massagardi igormassagardi@hotmail.com
@@ -14,44 +11,40 @@ package State;
  */
 
 public abstract class EstadoAgendamento {
-   // Agendamento agendar;
+  
     protected ContextoAgendamento agendamento;
       
     public EstadoAgendamento(ContextoAgendamento agendamento){
         this.agendamento = agendamento;
     }
-    
-    //Inicia as classes abistratas para mudar o estado do agendamento
+    /**
+     *   Inicia as classes abistratas para mudar o estado do agendamento para reagendamento
+     */
     public abstract String estadoreagendar();
-    public abstract String estadoconfirmado();
+    
+    /**
+     *   Inicia as classes abistratas para mudar o estado do agendamento para confirmado
+     */
+    
+    public abstract String estadoconfirmado();    
+    /**
+     *   Inicia as classes abistratas para mudar o estado do agendamento para o cancelamento
+     */
+    
     public abstract String estadocancelar();
+    
+    /**
+     *   Inicia as classes abistratas para mudar o estado do agendamento para a conclusao
+     */
+    
     public abstract String estadoconcluido();
+        
+    /**
+     *   Inicia as classes abistratas para mudar o estado do agendamento para pendente
+     */
+    
     public abstract String pendente();
    
 }
          
     
-
- /*
-    State(Agendamento agendar){
-                                        
-        this.agendar = agendar;
-    }
-  
-    
-      public static void main(String[] args) {
-           String data = "";
-    int horario;
-         Agendamento agendar = new Agendamento();
-        
-         Metodos dados = new Metodos();
-         
-         Estado estado = new Estado();
-         
-         agendar.Agendamento(dados);
-         
-        
-          System.out.println("Seu Cadastro esta pendente espere um instante");
-          estado.Concluir();
-     
-    }*/
