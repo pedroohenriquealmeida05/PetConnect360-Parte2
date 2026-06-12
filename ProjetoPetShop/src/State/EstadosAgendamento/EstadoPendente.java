@@ -71,7 +71,6 @@ public class EstadoPendente extends EstadoAgendamento{
    */
     @Override
       public String pendente(){
-      
         return("Ja esta pendente");
     }
 }
